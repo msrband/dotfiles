@@ -302,7 +302,7 @@ set hidden
 
 "
 let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
     \ 'go': ['gopls'],
     \ }
 
