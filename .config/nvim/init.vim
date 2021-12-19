@@ -11,6 +11,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'github/copilot.vim'
 
 "" Snippet
 Plug 'Shougo/neosnippet.vim'

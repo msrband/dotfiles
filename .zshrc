@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  asdf
+#  asdf
   bundler
   fasd
   fzf
@@ -134,7 +134,6 @@ export EDITOR=nvim
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-. $(brew --prefix asdf)/asdf.sh
 eval "$(direnv hook zsh)"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
@@ -143,3 +142,5 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 export PATH="/usr/local/sbin:$PATH:$HOME/go/bin"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+. $(brew --prefix asdf)/libexec/asdf.sh
