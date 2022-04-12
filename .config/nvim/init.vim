@@ -360,7 +360,7 @@ end
 -- treesitter
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
+ensure_installed = {"ruby", "go", "python", "javascript", "html", "css", "lua", "typescript", "rust", "vim", "vue"},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -387,3 +387,7 @@ EOF
 " treesitter
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
+"" Copilot
+imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
