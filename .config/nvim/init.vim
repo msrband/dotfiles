@@ -65,6 +65,8 @@ Plug 'metakirby5/codi.vim'
 "" Comment
 Plug 'numToStr/Comment.nvim'
 
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 
 set nocompatible " be iMproved, required
@@ -162,6 +164,7 @@ noremap <F3> :Autoformat<CR>
 "" FZF
 map <c-p> :FZF<CR>
 map <c-s> :Ag<CR>
+map <c-b> :Buffers<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -357,6 +360,21 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+util = require "lspconfig/util"
+nvim_lsp.gopls.setup {
+  cmd = {"gopls", "serve"},
+  filetypes = {"go", "gomod"},
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
 -- treesitter
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -382,6 +400,7 @@ ensure_installed = {"ruby", "go", "python", "javascript", "html", "css", "lua", 
     additional_vim_regex_highlighting = false,
   },
 }
+
 EOF
 
 " treesitter
@@ -391,3 +410,6 @@ set foldexpr=nvim_treesitter#foldexpr()
 "" Copilot
 imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+
+"" vim-go
+let g:go_fmt_command = "goimports"

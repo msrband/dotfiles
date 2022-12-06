@@ -134,13 +134,12 @@ export EDITOR=nvim
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(direnv hook zsh)"
-
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
-export PATH="/usr/local/sbin:$PATH:$HOME/go/bin"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:$HOME/go/bin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 . $(brew --prefix asdf)/libexec/asdf.sh
+
+eval "$(direnv hook zsh)"
