@@ -66,7 +66,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'numToStr/Comment.nvim'
 
 Plug 'easymotion/vim-easymotion'
-
+Plug 'eandrju/cellular-automaton.nvim' 
 call plug#end()
 
 set nocompatible " be iMproved, required
