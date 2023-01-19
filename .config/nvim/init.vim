@@ -413,3 +413,7 @@ let g:copilot_no_tab_map = v:true
 
 "" vim-go
 let g:go_fmt_command = "goimports"
+
+
+"" Disable Perl provider 
+let g:loaded_perl_provider = 0
