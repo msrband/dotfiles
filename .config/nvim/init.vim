@@ -46,6 +46,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "" Colorscheme
 Plug 'junegunn/seoul256.vim'
+Plug 'savq/melange-nvim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tomtom/tcomment_vim'
@@ -151,9 +152,10 @@ set foldmethod=indent   " fold based on indent level
 " augroup END
 
 "" Color
-let g:seoul256_background = 236
-colo seoul256
+"let g:seoul256_background = 236
+"colo seoul256
 set termguicolors
+colorscheme melange
 
 "" Deoplete
 let g:deoplete#enable_at_startup = 1
