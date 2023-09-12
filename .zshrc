@@ -77,8 +77,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 #  asdf
+  autojump
   bundler
-  fasd
   fzf
   git
   docker
@@ -143,3 +143,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 eval "$(direnv hook zsh)"
+
+eval "$(github-copilot-cli alias -- "$0")"
+#PATH=$PATH:/Users/zoo/.asdf/installs/golang/1.20/packages/bin
+
