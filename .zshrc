@@ -135,16 +135,13 @@ export EDITOR=nvim
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-export PATH="/opt/homebrew/opt/postgresql@13/bin:/bin:/usr/local/sbin:$PATH"
+export PATH="/bin:/usr/local/sbin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 eval "$(direnv hook zsh)"
-
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@13/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@13/include"
 
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
