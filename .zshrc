@@ -76,7 +76,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-#  asdf
+  asdf
   autojump
   bundler
   fzf
@@ -139,7 +139,8 @@ export PATH="/bin:/usr/local/sbin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-. $(brew --prefix asdf)/libexec/asdf.sh
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 eval "$(direnv hook zsh)"
 
