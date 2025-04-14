@@ -139,11 +139,15 @@ export PATH="/bin:/usr/local/sbin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
 eval "$(direnv hook zsh)"
 
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+
+eval "$(mise activate zsh)"
+
+# pnpm for NPM package installation
+export PATH="$HOME/.pnpm:$PATH"
+
+alias asdf=mise
