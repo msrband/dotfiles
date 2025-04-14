@@ -329,7 +329,17 @@ require('Comment').setup()
 
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.solargraph.setup{}
+lspconfig.ruby_lsp.setup({
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
+    addonSettings = {
+      ["Ruby LSP Rails"] = {
+        enablePendingMigrationsPrompt = false,
+      },
+    },
+  },
+})
 lspconfig.pyright.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.rust_analyzer.setup {
