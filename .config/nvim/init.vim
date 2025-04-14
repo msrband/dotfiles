@@ -11,7 +11,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "" Auto Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'github/copilot.vim'
 
 "" Snippet
 Plug 'Shougo/neosnippet.vim'
@@ -68,13 +67,27 @@ Plug 'numToStr/Comment.nvim'
 
 Plug 'easymotion/vim-easymotion'
 Plug 'eandrju/cellular-automaton.nvim' 
+
+"" Avante
+"Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'stevearc/dressing.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+" Optional deps
+Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+Plug 'HakonHarnes/img-clip.nvim'
+"Plug 'zbirenbaum/copilot.lua'
+
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 call plug#end()
 
 set nocompatible " be iMproved, required
 set encoding=utf-8
 set fileencoding=utf-8
 let mapleader = ','
-set pastetoggle=<f6>
 set nopaste
 set clipboard=unnamed
 set noswapfile  " Git handles version controlling
@@ -390,15 +403,13 @@ ensure_installed = {"ruby", "go", "python", "javascript", "html", "css", "lua", 
   },
 }
 
+require('avante').setup()
+vim.opt.laststatus = 3
 EOF
 
 " treesitter
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-
-"" Copilot
-imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
 
 "" vim-go
 let g:go_fmt_command = "goimports"
