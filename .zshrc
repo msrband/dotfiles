@@ -151,3 +151,10 @@ eval "$(mise activate zsh)"
 export PATH="$HOME/.pnpm:$PATH"
 
 alias asdf=mise
+
+# bun completions
+[ -s "/Users/zoo/.bun/_bun" ] && source "/Users/zoo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
