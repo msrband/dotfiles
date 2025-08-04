@@ -135,7 +135,7 @@ export EDITOR=nvim
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-export PATH="/bin:/usr/local/sbin:$PATH"
+export PATH="/bin:/usr/local/sbin:$HOME/.local/bin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
