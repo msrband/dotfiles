@@ -9,3 +9,4 @@ For each function and class:
 - Include usage examples where helpful
 
 Follow the project's existing documentation style.
+- If it's a Ruby project, use YARD to document it.
