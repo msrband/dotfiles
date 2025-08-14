@@ -68,20 +68,7 @@ Plug 'numToStr/Comment.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'eandrju/cellular-automaton.nvim' 
 
-"" Avante
-"Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'stevearc/dressing.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'MeanderingProgrammer/render-markdown.nvim'
-
-" Optional deps
-Plug 'hrsh7th/nvim-cmp'
-Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
-Plug 'HakonHarnes/img-clip.nvim'
-"Plug 'zbirenbaum/copilot.lua'
-
-Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
 set nocompatible " be iMproved, required
@@ -412,9 +399,6 @@ ensure_installed = {"ruby", "go", "python", "javascript", "html", "css", "lua", 
     additional_vim_regex_highlighting = false,
   },
 }
-
-require('avante').setup()
-vim.opt.laststatus = 3
 EOF
 
 " treesitter
