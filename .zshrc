@@ -151,3 +151,5 @@ eval "$(mise activate zsh)"
 export PATH="$HOME/.pnpm:$PATH"
 
 alias asdf=mise
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
