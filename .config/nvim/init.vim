@@ -314,9 +314,11 @@ lua << EOF
 ---Comment
 require('Comment').setup()
 
--- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.ruby_lsp.setup({
+-- Setup language servers using the new vim.lsp.config API (nvim 0.11+)
+vim.lsp.config.ruby_lsp = {
+  cmd = { 'ruby-lsp' },
+  filetypes = { 'ruby' },
+  root_markers = { 'Gemfile', '.git' },
   init_options = {
     formatter = 'standard',
     linters = { 'standard' },
@@ -326,15 +328,42 @@ lspconfig.ruby_lsp.setup({
       },
     },
   },
-})
-lspconfig.pyright.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
+}
+
+vim.lsp.config.pyright = {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+  root_markers = { 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+}
+
+vim.lsp.config.ts_ls = {
+  cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+  root_markers = { 'package.json', 'tsconfig.json', '.git' },
+}
+
+vim.lsp.config.rust_analyzer = {
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
+  root_markers = { 'Cargo.toml', '.git' },
   settings = {
     ['rust-analyzer'] = {},
   },
 }
+
+-- Enable configured language servers
+vim.lsp.enable('ruby_lsp')
+vim.lsp.enable('pyright')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('rust_analyzer')
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
