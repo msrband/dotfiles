@@ -4,6 +4,9 @@
 "" npm install -g js-beautify (vim-autoformat)
 "" gem install rubocop (vim-autoformat)
 call plug#begin('~/.local/share/nvim/plugged')
+"" Markdown
+Plug 'OXY2DEV/markview.nvim'
+
 "" LSP
 Plug 'neovim/nvim-lspconfig'
 
@@ -66,9 +69,8 @@ Plug 'metakirby5/codi.vim'
 Plug 'numToStr/Comment.nvim'
 
 Plug 'easymotion/vim-easymotion'
-Plug 'eandrju/cellular-automaton.nvim' 
+Plug 'eandrju/cellular-automaton.nvim'
 
-Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
 set nocompatible " be iMproved, required
