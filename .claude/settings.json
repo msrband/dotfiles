@@ -1,7 +1,8 @@
 {
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bun x ccusage statusline --no-offline",
     "padding": 0
-  } 
+  }
 }
