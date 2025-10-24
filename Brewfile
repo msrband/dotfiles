@@ -53,7 +53,6 @@ brew "zsh-syntax-highlighting"
 
 cask "1password-cli"
 cask "aerial"
-cask "alacritty"
 cask "arc"
 cask "aws-vault-binary"
 cask "chromedriver"
