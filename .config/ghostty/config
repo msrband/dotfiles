@@ -1,4 +1,4 @@
 # Empty values reset the configuration to the default value
-font-family =  UbuntuMono Nerd Font
-font-size = 18
+font-family =  UbuntuMono Nerd Font, D2Coding ligature
+font-size = 13
 theme = 0x96f
