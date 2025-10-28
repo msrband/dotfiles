@@ -2,7 +2,7 @@
 # 영문/기호용: UbuntuMono Nerd Font
 # 한글 fallback: D2Coding ligature
 font-family = "Iosevka Term Nerd Font"
-font-family = "D2Coding ligature"
+font-family = "D2CodingLigature Nerd Font"
 
 # ===== 글꼴 크기 =====
 font-size = 16
