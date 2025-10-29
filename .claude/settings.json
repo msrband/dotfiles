@@ -11,6 +11,6 @@
     "example-skills@anthropic-agent-skills": true,
     "document-skills@anthropic-agent-skills": true
   },
-  "alwaysThinkingEnabled": true,
-  "outputStyle": "Explanatory"
+  "outputStyle": "Explanatory",
+  "alwaysThinkingEnabled": false
 }
