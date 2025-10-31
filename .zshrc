@@ -136,7 +136,6 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-eval "$(direnv hook zsh)"
 
 # Initialize homebrew early
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -153,6 +152,7 @@ export PATH="$HOME/.pnpm:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 
+eval "$(direnv hook zsh)"
 # mise activation
 eval "$(mise activate zsh)"
 
