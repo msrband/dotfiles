@@ -76,7 +76,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  asdf
+  # asdf  # Disabled: using mise instead (mise aliased to asdf below)
   autojump
   bundler
   fzf
@@ -88,7 +88,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # User configuration
 
@@ -135,21 +134,40 @@ export EDITOR=nvim
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-export PATH="/bin:/usr/local/sbin:$HOME/.local/bin:$PATH"
-
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 eval "$(direnv hook zsh)"
+
+# Initialize homebrew early
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
-eval "$(mise activate zsh)"
-
+# Add custom paths before mise activation
+export PATH="/usr/local/sbin:$HOME/.local/bin:$PATH"
 # pnpm for NPM package installation
 export PATH="$HOME/.pnpm:$PATH"
-
-alias asdf=mise
+# Database clients
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
+
+# mise activation
+eval "$(mise activate zsh)"
+
+# CRITICAL: Force mise tool paths to the front to override macOS path_helper
+# macOS path_helper puts system paths (/usr/bin) at the front, making system
+# ruby take precedence. We must explicitly prepend mise paths after activation.
+_mise_bin_paths=""
+if [[ -d "$HOME/.local/share/mise/installs" ]]; then
+  for tool_dir in "$HOME/.local/share/mise/installs"/*/*; do
+    if [[ -d "$tool_dir/bin" ]]; then
+      _mise_bin_paths="$tool_dir/bin:$_mise_bin_paths"
+    fi
+  done
+  export PATH="${_mise_bin_paths}${PATH}"
+  unset _mise_bin_paths
+fi
+
+alias asdf=mise
