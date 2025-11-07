@@ -17,3 +17,4 @@ grapheme-width-method = legacy
 
 # ===== 테마 =====
 theme = 0x96f
+keybind = shift+enter=text:\x1b\r
