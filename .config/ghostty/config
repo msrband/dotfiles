@@ -5,7 +5,7 @@ font-family = "Iosevka Term Nerd Font"
 font-family = "D2CodingLigature Nerd Font"
 
 # ===== 글꼴 크기 =====
-font-size = 15
+font-size = 14
 
 # ===== 셀 폭 보정 =====
 # 한글이 약간 넓게 나오는 문제를 보정 (-8% ~ -12% 권장)
@@ -16,5 +16,5 @@ adjust-cell-width = -8%
 grapheme-width-method = legacy
 
 # ===== 테마 =====
-theme = 0x96f
+theme = seoul256
 keybind = shift+enter=text:\x1b\r
