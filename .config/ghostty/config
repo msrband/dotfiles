@@ -1,7 +1,7 @@
 # ===== 폰트 설정 =====
-# 영문/기호용: UbuntuMono Nerd Font
-# 한글 fallback: D2Coding ligature
-font-family = "Iosevka Term Nerd Font"
+# 영문/기호용: JetBrainsMono Nerd Font (ligature 지원)
+# 한글 fallback: D2CodingLigature Nerd Font
+font-family = "JetBrainsMono Nerd Font"
 font-family = "D2CodingLigature Nerd Font"
 
 # ===== 글꼴 크기 =====
@@ -10,10 +10,6 @@ font-size = 14
 # ===== 셀 폭 보정 =====
 # 한글이 약간 넓게 나오는 문제를 보정 (-8% ~ -12% 권장)
 adjust-cell-width = -8%
-
-# ===== 폭 계산 방식 =====
-# 일부 셸/프로그램에서 글자 폭 계산이 어긋날 때 legacy 모드가 더 안정적
-grapheme-width-method = legacy
 
 # ===== 테마 =====
 theme = seoul256
