@@ -1,4 +1,5 @@
 tap "oven-sh/bun"
+tap "raine/workmux"
 
 brew "act"
 brew "asciinema"
@@ -44,6 +45,7 @@ brew "tmux"
 brew "uv"
 brew "webp"
 brew "wget"
+brew "workmux"
 brew "wrk"
 brew "zsh"
 brew "zsh-autosuggestions"
