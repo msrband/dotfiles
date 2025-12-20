@@ -4,6 +4,7 @@ return {
   {
     "coder/claudecode.nvim",
     opts = {
+      terminal_cmd = "~/.config/workmux/scripts/claude-with-context.sh",
       diff_opts = {
         auto_close_on_accept = true, -- 수락 시 diff 창 자동 닫기
         vertical_split = true, -- 수직 분할
