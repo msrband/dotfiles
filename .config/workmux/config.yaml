@@ -1,5 +1,5 @@
 post_create:
-  - ~/.config/workmux/scripts/fetch-linear-context.sh
+  - $HOME/.config/workmux/scripts/fetch-linear-context.sh
 
 panes:
   - command: nvim .

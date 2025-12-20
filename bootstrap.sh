@@ -59,6 +59,20 @@ else
     echo "Warning: mise not found. Run 'brew install mise' first, then 'mise install'"
 fi
 
+# 6. Setup secrets from 1Password
+if command -v op &> /dev/null; then
+    echo "==> Setting up secrets..."
+    mkdir -p "$HOME/.secrets"
+    chmod 700 "$HOME/.secrets"
+
+    if op read "op://Employee/Linear API Key/notesPlain" > "$HOME/.secrets/linear_api_token" 2>/dev/null; then
+        chmod 600 "$HOME/.secrets/linear_api_token"
+        echo "    Linear API token saved"
+    else
+        echo "    Skipped: 1Password not authenticated or item not found"
+    fi
+fi
+
 echo "==> Bootstrap complete!"
 echo ""
 echo "Next steps:"

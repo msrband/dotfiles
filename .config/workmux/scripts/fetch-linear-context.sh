@@ -12,12 +12,11 @@ if [ -z "$ISSUE_ID" ]; then
   exit 0
 fi
 
-# Get Linear API token from 1Password
-LINEAR_API_TOKEN=$(op read "op://Employee/Linear API Key/notesPlain" 2>/dev/null || echo "")
-
-if [ -z "$LINEAR_API_TOKEN" ]; then
+# Get Linear API token from file (set by bootstrap.sh)
+if [ ! -f "$HOME/.secrets/linear_api_token" ]; then
   exit 0
 fi
+LINEAR_API_TOKEN=$(cat "$HOME/.secrets/linear_api_token")
 
 # Fetch issue details using linearis (via mise)
 TMPFILE=$(mktemp)
