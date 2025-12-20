@@ -2,6 +2,7 @@
   "env": {
     "DISABLE_AUTOUPDATER": "1"
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bun x ccusage statusline --no-offline",
