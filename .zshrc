@@ -8,6 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Initialize homebrew early (before oh-my-zsh plugins that need it)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -76,15 +79,16 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  # asdf  # Disabled: using mise instead (mise aliased to asdf below)
   autojump
   bundler
   fzf
   git
   docker
   docker-compose
+  mise
   ruby
   rails
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -137,9 +141,6 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
-# Initialize homebrew early
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -153,8 +154,6 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 
 eval "$(direnv hook zsh)"
-# mise activation
-eval "$(mise activate zsh)"
 
 # CRITICAL: Force mise tool paths to the front to override macOS path_helper
 # macOS path_helper puts system paths (/usr/bin) at the front, making system
