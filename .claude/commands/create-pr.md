@@ -66,6 +66,7 @@ This guide explains how to create pull requests using GitHub CLI in our project.
 1. **Incorrect Section Headers**: Always use the exact section headers from the template
 2. **Adding Custom Sections**: Stick to the sections defined in the template
 3. **Using Outdated Templates**: Always refer to the current @.github/pull_request_template.md file
+4. **Using `git commit --amend`**: Never amend commits. If changes are needed, create a new commit instead
 
 ### Missing Sections
 

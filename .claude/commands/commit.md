@@ -90,6 +90,7 @@ Example of splitting commits:
 
 ## Important Notes
 
+- **Never use `git commit --amend`**: Always create new commits instead of amending existing ones. If changes need to be made to a previous commit, create a new commit with those changes.
 - By default, pre-commit checks (`standardrb`, `rubocop`, `pnpm lint`, `pnpm build`, `pnpm generate:docs`) will run to ensure code quality
 - If these checks fail, you'll be asked if you want to proceed with the commit anyway or fix the issues first
 - If specific files are already staged, the command will only commit those files
