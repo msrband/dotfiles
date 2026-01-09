@@ -155,18 +155,7 @@ export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 
 eval "$(direnv hook zsh)"
 
-# CRITICAL: Force mise tool paths to the front to override macOS path_helper
-# macOS path_helper puts system paths (/usr/bin) at the front, making system
-# ruby take precedence. We must explicitly prepend mise paths after activation.
-_mise_bin_paths=""
-if [[ -d "$HOME/.local/share/mise/installs" ]]; then
-  for tool_dir in "$HOME/.local/share/mise/installs"/*/*; do
-    if [[ -d "$tool_dir/bin" ]]; then
-      _mise_bin_paths="$tool_dir/bin:$_mise_bin_paths"
-    fi
-  done
-  export PATH="${_mise_bin_paths}${PATH}"
-  unset _mise_bin_paths
-fi
+# mise shims - 프로젝트별 버전 관리를 위해 shims 디렉토리를 PATH 앞에 추가
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 alias asdf=mise
